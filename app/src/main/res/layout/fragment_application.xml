@@ -25,7 +25,7 @@
             android:hint="Search"
             android:fontFamily="@font/reem_kufi_medium"
             android:drawableEnd="@drawable/baseline_search_24"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:padding="15dp"
             />
 

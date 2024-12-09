@@ -4,32 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".frgments.ApplicationFragment">
+    tools:context=".view.frgments.ApplicationFragment">
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:indeterminate="true"
-        android:visibility="gone"
-        android:indeterminateDrawable="@drawable/custom_progress_bar" />
 
-    <TextView
-        android:id="@+id/tv_wrong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/something_went_wrong"
-        android:fontFamily="@font/reem_kufi_semi_bold"
-        android:textColor="@color/color_grey"
-        android:textSize="16sp"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
 
         <EditText
             android:id="@+id/et_search"
@@ -44,6 +27,35 @@
             android:drawableEnd="@drawable/baseline_search_24"
             android:layout_margin="5dp"
             android:padding="15dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            android:indeterminateDrawable="@drawable/custom_progress_bar" />
+
+        <TextView
+            android:id="@+id/tv_wrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/something_went_wrong"
+            android:fontFamily="@font/reem_kufi_semi_bold"
+            android:textColor="@color/color_grey"
+            android:textSize="16sp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            android:layout_gravity="center"
+            android:visibility="gone"
             />
 
         <androidx.recyclerview.widget.RecyclerView

@@ -1,4 +1,4 @@
-package com.example.demoapp
+package com.example.demoapp.web
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

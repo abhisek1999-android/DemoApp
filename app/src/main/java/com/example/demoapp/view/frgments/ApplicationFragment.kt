@@ -1,4 +1,4 @@
-package com.example.demoapp.frgments
+package com.example.demoapp.view.frgments
 
 import android.os.Bundle
 import android.util.Log
@@ -7,19 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.demoapp.ApiResult
-import com.example.demoapp.App
-import com.example.demoapp.R
+import com.example.demoapp.web.ApiResult
+import com.example.demoapp.model.App
 import com.example.demoapp.adapters.ApplicationsAdapter
 import com.example.demoapp.databinding.FragmentApplicationBinding
 import com.example.demoapp.viewmodel.KidsAppDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
@@ -56,28 +54,32 @@ class ApplicationFragment : Fragment() {
     }
 
     private fun observeKidsAppData() {
-        viewModel.kidsAppData.observe(viewLifecycleOwner, {
-            when (it) {
-                is ApiResult.Success -> {
-                    Log.d("KidsAppData", "Data: ${it.data}")
-                    binding.progressbar.visibility = View.GONE
-                    binding.tvWrong.visibility = View.GONE
-                    appsList = it.data?.appList ?: emptyList()
-                    showData(appsList)
-                }
-                is ApiResult.Error -> {
-                    binding.progressbar.visibility = View.GONE
-                    Log.d("KidsAppData", "Error: ${it.message}")
-                    binding.tvWrong.visibility = View.VISIBLE
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                }
-                else -> {
-                    binding.tvWrong.visibility = View.VISIBLE
-                    binding.progressbar.visibility = View.GONE
-                    Log.d("KidsAppData", "Loading")
+
+        lifecycleScope.launch {
+            viewModel.kidsAppData.collect {
+                when (it) {
+                    is ApiResult.Success -> {
+                        Log.d("KidsAppData", "Data: ${it.data}")
+                        viewModel.clearKidsAppData()
+                        binding.progressbar.visibility = View.GONE
+                        binding.tvWrong.visibility = View.GONE
+                        appsList = it.data?.appList ?: emptyList()
+                        showData(appsList)
+                    }
+                    is ApiResult.Error -> {
+                        viewModel.clearKidsAppData()
+                        binding.progressbar.visibility = View.GONE
+                        Log.d("KidsAppData", "Error: ${it.message}")
+                        binding.tvWrong.visibility = View.VISIBLE
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Log.d("KidsAppData", "Loading")
+                    }
                 }
             }
-        })
+        }
+
     }
 
     private fun showData(appsList : List<App>) {

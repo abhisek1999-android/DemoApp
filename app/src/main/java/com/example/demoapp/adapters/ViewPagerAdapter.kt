@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.demoapp.frgments.ApplicationFragment
-import com.example.demoapp.frgments.SettingsFragment
+import com.example.demoapp.view.frgments.ApplicationFragment
+import com.example.demoapp.view.frgments.SettingsFragment
 
 private const val NUM_PAGES = 2
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle): FragmentStateAdapter(fragmentManager,lifecycle)

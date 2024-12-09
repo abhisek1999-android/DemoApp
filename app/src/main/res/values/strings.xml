@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connected">Connected</string>
+    <string name="user_name">Suvojit</string>
+    <string name="app_icon">user_image</string>
+    <string name="no_items">No Items</string>
+    <string name="something_went_wrong">Something went wrong</string>
+</resources>

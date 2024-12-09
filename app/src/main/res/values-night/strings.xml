@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="connected">Connected</string>
+    <string name="user_name">Suvojit</string>
+    <string name="app_icon">user_image</string>
+    <string name="no_items">No Items</string>
+</resources>

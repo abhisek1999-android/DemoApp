@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".frgments.ApplicationFragment">
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/custom_progress_bar" />
+
+    <TextView
+        android:id="@+id/tv_wrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/something_went_wrong"
+        android:fontFamily="@font/reem_kufi_semi_bold"
+        android:textColor="@color/color_grey"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_shape_round_rect_border_only"
+            android:hint="Search"
+            android:fontFamily="@font/reem_kufi_medium"
+            android:drawableEnd="@drawable/baseline_search_24"
+            android:layout_margin="5dp"
+            android:padding="15dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_apps_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            android:layout_margin="10dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

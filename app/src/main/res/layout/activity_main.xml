@@ -7,82 +7,77 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <!--    <androidx.core.widget.NestedScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical"
-      >
+        <RelativeLayout
+            android:id="@+id/rl_header"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/color_green">
+
+            <ImageView
+                android:id="@+id/iv_user_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_user_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/reem_kufi_regular"
+                android:text="@string/user_name"
+                android:textColor="@color/white"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_user_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_shape_round_rect"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/reem_kufi_semi_bold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="6dp"
+                android:text="@string/connected"
+                app:drawableEndCompat="@drawable/check_circle_round" />
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@color/color_green"
-        android:id="@+id/rl_header"
-        >
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/iv_user_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_green"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorColor="@color/white"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+            app:tabTextColor="@color/white" />
 
-    <TextView
-        android:id="@+id/tv_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_user_image"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textSize="36sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/reem_kufi_regular"
-        android:text="@string/user_name"
-        />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/connected"
-        android:fontFamily="@font/reem_kufi_semi_bold"
-        android:layout_below="@id/tv_user_name"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="8dp"
-        android:layout_marginStart="5dp"
-        android:paddingVertical="6dp"
-        android:drawablePadding="5dp"
-        android:background="@drawable/bg_shape_round_rect"
-        android:layout_centerHorizontal="true"
-        app:drawableEndCompat="@drawable/check_circle_round" />
-
-
-
-</RelativeLayout>
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_green"
-        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white"
-        />
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-  </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    <!--    </androidx.core.widget.NestedScrollView>-->
 </RelativeLayout>

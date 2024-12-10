@@ -1,9 +1,8 @@
-package com.example.demoapp
+package com.example.demoapp.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
 
 object NetworkUtils {
     fun isInternetAvailable(context: Context): Boolean {

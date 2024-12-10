@@ -8,4 +8,6 @@
     <string name="no_items">No Items</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="not_connected">Not Connected</string>
+    <string name="no_data_found">No data found</string>
+    <string name="okay">Okay</string>
 </resources>

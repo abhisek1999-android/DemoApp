@@ -16,18 +16,17 @@ class CommonRepository @Inject constructor() {
     private val TAG = "CommonRepository"
 
     fun getUserData(): Flow<ApiResult<Data?>> = flow {
-        // Perform the network call
         val response = apiService.getUserAppDetails()
         if (response.isSuccessful) {
             response.body()?.data.let {
-                emit(ApiResult.Success(it)) // Emit success result
+                emit(ApiResult.Success(it))
             }
         } else {
-            emit(ApiResult.Error(response.message())) // Emit error result
+            Log.e(TAG, "getUserData: ${response.message()}")
+            emit(ApiResult.Error("Something went wrong!"))
         }
     }.catch { e ->
-        // Handle exceptions and emit an error result
-        emit(ApiResult.Error(e.message ?: "Unknown error occurred"))
+        emit(ApiResult.Error("Something went wrong!"))
     }
 
 }

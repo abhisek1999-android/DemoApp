@@ -1,4 +1,4 @@
-package com.example.demoapp
+package com.example.demoapp.utils
 
 object ViewPagerType {
     const val APPLICATION = "Application"
